@@ -19,7 +19,7 @@ handout
 ├── images
 │   └── .png images of each plot created
 ├── handout.rnw 
-├── handout_code.R (all code contained in .rnw combined)
+├── handout_code.R (all code contained within .rnw combined)
 └── handout.pdf (compiled .pdf of .rnw file)
 ```
 
