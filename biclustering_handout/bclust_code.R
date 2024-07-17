@@ -1,5 +1,5 @@
 
-# full code in bclust handout
+# full code in bclust handout - also saves all graphs created in images folder
 
 rm(list=ls())
 library("dplyr")
@@ -55,7 +55,9 @@ layers * r2
 # plot
 ## fitted values
 yhat <- fitted.sofar.Z.rank(fit,rank=1)
+png("images/image_sofar.png",  width = 2000, height = 1600, res = 300)
 image.sofar(yhat, legend.title = "")+guides(fill = guide_legend(reverse=TRUE))
+dev.off()
 
 ## y cutoff
 min(which(yhat[,1]<0))
@@ -66,6 +68,7 @@ min(which(yhat[1,]<0))
 
 ## plot with annotations
 yhat <- fitted.sofar.Z.rank(fit,rank=1)
+png("images/image_sofar_annotated.png",  width = 2000, height = 1600, res = 300)
 image.sofar(yhat, legend.title = "")+guides(fill = guide_legend(reverse=TRUE))+
   annotate("segment", x = 810, xend = 810, y = 0, yend = 145,colour = "black", linewidth = 1, alpha = .7)+ 
   annotate("segment", x = 943, xend = 943, y = 0, yend = 145,colour = "black", linewidth = 1, alpha = .7)+ 
@@ -79,3 +82,4 @@ image.sofar(yhat, legend.title = "")+guides(fill = guide_legend(reverse=TRUE))+
   coord_cartesian(xlim = c(0, 2201), ylim = c(0,145),  clip = 'off')+
   theme(axis.text.x = element_blank(), axis.ticks = element_blank(),
         axis.text.y = element_blank(), axis.title=element_text(size=45))
+dev.off()

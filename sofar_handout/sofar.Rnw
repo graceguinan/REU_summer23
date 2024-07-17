@@ -238,7 +238,7 @@ unselected_count <- sum(!set1 & !set2 & !set3)
 venn.plot <- venn.diagram(
   x = venn_data,
   category.names = c("1,2,4", "3", "1,2,4"),
-  output = TRUE,
+  output = FALSE,
   main = "Count of componds in each group", 
   filename = NULL,
   fill = c("red", "darkorange", "blue"),   

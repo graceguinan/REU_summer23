@@ -1,5 +1,5 @@
 
-# full code in sofar handout
+# full code in sofar handout - also saves all graphs created in images folder
 
 # packages and data
 rm(list=ls())
@@ -96,14 +96,17 @@ data_1 <- full_join(linkY, data_, by = "i")
 avgdat <- aggregate(cbind(y, fit)~j +Location +Depth, FUN= mean, data = data_1)
 
 ## graph with location and depth
-ggplot(data =avgdat,aes(y = y, x = Depth, group = Location))+geom_line(linetype=1, aes(color = Location))+
+p1 <- ggplot(data =avgdat,aes(y = y, x = Depth, group = Location))+geom_line(linetype=1, aes(color = Location))+
   geom_line(aes(x=Depth,y=fit, color=Location),linetype=2)+
   facet_wrap(~j,scales = "free")+coord_flip() + scale_x_reverse()+ylim(0,1.3)+scale_color_manual(values = c("red", "blue"))+theme(axis.title.x =element_blank())
+p1
+ggsave("images/fitted_graph.png", plot = p1, width = 10, height = 8, dpi = 300)
 
 ## scatter plot
-ggplot(avgdat,aes(x=y,y=fit, color = Location))+geom_point()+
+p2<- ggplot(avgdat,aes(x=y,y=fit, color = Location))+geom_point()+
   facet_wrap(~j,scales="free")+xlab("observed")+ylab("fitted")+scale_color_manual(values = c("red", "blue"))
-
+p2
+ggsave("images/scatter_plot.png", plot = p2, width = 10, height = 8, dpi = 300)
 
 # Venn Diagram
 #install.packages("VennDiagram")
@@ -132,6 +135,7 @@ venn_data <- list(
 unselected_count <- sum(!set1 & !set2 & !set3)
 
 ## Generate the Venn diagram
+png("images/venn_diagram_sofar.png",width = 2000, height = 1600, res = 300)
 venn.plot <- venn.diagram(
   x = venn_data,
   category.names = c("1,2,4", "3", "1,2,4"),
@@ -147,7 +151,7 @@ venn.plot <- venn.diagram(
 grid.newpage()
 grid::grid.draw(venn.plot)
 grid.text(paste(unselected_count), x = 0.9, y = 0.1, gp = gpar(fontsize = 12, col = "black"))
-
+dev.off()
 
 # heatmap
 library(viridis)
@@ -161,8 +165,12 @@ ggdata_ <- data.frame(meta.pca$scores, ID = metadat$ID)
 ## make heat map
 source("helper_functions/heatmap.R")
 ID_quant <- as.list(read.csv("data/quant_ids.csv")$ID)
+png("images/heatmap.png", width = 2000, height = 1600, res = 300)
 heatmap(fit_quantile_all1234, ID_quant, ggdata_)
+dev.off()
 
 ## make PCA
 loads <- as.data.frame(meta.pca$loadings[,c(1:2)])
+png("images/pca_heatmap.png", width = 2000, height = 1600, res = 300)
 pca_heatmap(ggdata_, loads)
+dev.off()
