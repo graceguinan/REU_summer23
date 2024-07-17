@@ -8,15 +8,15 @@ The folder [biclustering_handout](https://github.com/graceguinan/REU_summer23/tr
 
 Each folder is structured:
 
-```plaintext
-handout/
-├── data/
+```bash
+handout
+├── data
 │   └── all datasets used 
-├── fit/
+├── fit
 │   └── fit created by SOFAR run 
-├── helper_functions/
+├── helper_functions
 │   └── all helper functions used 
-├── images/
+├── images
 │   └── .png images of each plot created  
 ```
 
@@ -29,20 +29,3 @@ transactions on information theory 65(8): 4924-4939.
 [^3]: Lee, M., Shen, H., Huang, J.Z. and Marron, J.S., 2010. Biclustering via sparse singular
 value decomposition. Biometrics, 66(4), pp.1087-1095.
 
-
-
-```plaintext
-MyProject/
-├── docs/
-│   ├── index.md
-│   └── setup.md
-├── src/
-│   ├── main.py
-│   ├── module/
-│   │   └── helper.py
-├── tests/
-│   ├── test_main.py
-│   └── test_helper.py
-├── .gitignore
-├── README.md
-└── requirements.txt
