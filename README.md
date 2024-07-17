@@ -4,25 +4,22 @@ This repository contains two handouts ([sofar_handout](https://github.com/graceg
 
 The folder [sofar_handout](https://github.com/graceguinan/REU_summer23/tree/main/sofar_handout) demonstrates how SOFAR was used to create a association network between two datasets, [HRMS_data.csv](https://github.com/graceguinan/REU_summer23/blob/main/sofar_handout/data/HRMS_data.csv) and [FDOM_data.csv](https://github.com/graceguinan/REU_summer23/blob/main/sofar_handout/data/FDOM_data.csv).  
 
-The folder [biclustering_handout](https://github.com/graceguinan/REU_summer23/tree/main/biclustering_handout) demonstrates how SOFAR was used as a biclustering technique[^3] on the dataset [HRMS.csv](https://github.com/graceguinan/REU_summer23/blob/main/biclustering_handout/data/HRMS_data.csv).
+The folder [biclustering_handout](https://github.com/graceguinan/REU_summer23/tree/main/biclustering_handout) demonstrates how SOFAR was used as a biclustering technique[^3] on the dataset [HRMS_data.csv](https://github.com/graceguinan/REU_summer23/blob/main/biclustering_handout/data/HRMS_data.csv).
 
 Each folder is structured:
 
 ```plaintext
-MyProject/
-├── docs/
-│   ├── index.md
-│   └── setup.md
-├── src/
+sofar_handout/
+├── data/
+│   ├── HRMS_data.csv
+├── fit/
 │   ├── main.py
 │   ├── module/
-│   │   └── helper.py
-├── tests/
+│   └── helper.py
+├── helper_functions/
 │   ├── test_main.py
 │   └── test_helper.py
-├── .gitignore
-├── README.md
-└── requirements.txt
+├── images/
 ```
 
 
