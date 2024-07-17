@@ -17,7 +17,10 @@ handout
 ├── helper_functions
 │   └── all helper functions used 
 ├── images
-│   └── .png images of each plot created  
+│   └── .png images of each plot created
+├── handout.rnw 
+├── handout_code.R (all code contained in .rnw combined)
+└── handout.pdf (compiled .pdf of .rnw file)
 ```
 
 
